@@ -9,7 +9,7 @@ const Authors: FC = () => {
         <p className="italic text-blue-200 opacity-70">Developer</p>
         <div className="border-t border-sky-200 opacity-50 my-4" />
         <p className="text-md font-bold text-sky-200">Reina Inghug</p>
-        <p className="italic text-blue-200 opacity-70">Infomercial</p>
+        <p className="italic text-blue-200 opacity-70">Developer</p>
       </div>
     </div>
   );

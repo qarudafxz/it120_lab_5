@@ -11,7 +11,7 @@ const Nav: FC = () => {
         <img
           src={me}
           alt="Creator"
-          className="bg-blue-500 font-main p-2 rounded-full xxxxs:w-8 md:w-12 md:px-[10px] md:py-2"
+          className="bg-blue-500 font-main p-2 rounded-full xxxxs:w-8 md:w-14 md:px-3 py-2"
         />
       </Tooltip>
     </div>
