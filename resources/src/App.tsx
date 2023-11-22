@@ -4,7 +4,14 @@
 import { FC, useState, useEffect, useCallback, useRef } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import './index.css';
-import { Nav, FeaturedCity, SearchInput, CoordWeather } from './components/ui';
+import {
+  Nav,
+  FeaturedCity,
+  SearchInput,
+  CoordWeather,
+  MainWeather
+} from './components/ui';
+import Authors from './components/ui/Authors';
 
 interface WeatherInfo {
   weather: any;
@@ -139,9 +146,15 @@ const App: FC = () => {
       <div
         ref={resultRef}
         id="result"
-        className="pb-10 xxxxs:flex flex-col md:grid grid-cols-5"
+        className="pb-10 gap-4 xxxxs:flex flex-col lg:grid grid-cols-7"
       >
-        {searchedWeather && <CoordWeather weather={searchedWeather} />}
+        {searchedWeather && (
+          <>
+            <CoordWeather weather={searchedWeather} />
+            <MainWeather weather={searchedWeather} />
+            <Authors />
+          </>
+        )}
       </div>
     </div>
   );
