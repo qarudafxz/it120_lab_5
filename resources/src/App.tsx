@@ -1,9 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { FC, useState, useEffect, useCallback } from 'react';
+import { FC, useState, useEffect, useCallback, useMemo } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import Skeleton from '@chakra-ui/react';
 import './index.css';
+import Nav from './components/ui/Nav';
+import FeaturedCity from './components/ui/FeaturedCity';
 
 interface WeatherInfo {
   weather: any;
@@ -12,8 +14,8 @@ interface WeatherInfo {
 
 const App: FC = () => {
   const [city, setCity] = useState('');
-
   const [weather, setWeather] = useState<WeatherInfo | null>(null);
+  const [featured, setFeatured] = useState<WeatherInfo | null>(null);
 
   const fetchData = async (cityName: string): Promise<WeatherInfo | null> => {
     const city = cityName.toLowerCase().replace(' city', '');
@@ -73,7 +75,7 @@ const App: FC = () => {
       return;
     }
 
-    setWeather(data);
+    setFeatured(data);
   };
 
   useEffect(() => {
@@ -106,8 +108,10 @@ const App: FC = () => {
   };
 
   return (
-    <div>
+    <div className="font-main flex flex-col gap-2 pt-5 xxxxs:mx-6 xxxs:mx-7 xxs:mx-20 xs:mx-24 md:mx-32 lg:mx-36">
       <Toaster />
+      <Nav />
+      <FeaturedCity weather={featured} />
     </div>
   );
 };
